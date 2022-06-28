@@ -1,6 +1,6 @@
 import { SearchMovies } from 'components/SearchMovies/SearchMovies';
 import { useLocation, Outlet } from 'react-router-dom';
-export const Movies = () => {
+const Movies = () => {
   const location = useLocation();
   return (
     <div>
@@ -9,3 +9,4 @@ export const Movies = () => {
     </div>
   );
 };
+export default Movies;

@@ -11,7 +11,7 @@ import s from './MovieDetails.module.css';
 import { Loading } from '../Loading/Loading';
 // import { Movies } from 'components/Movies';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
   const [film, setFilm] = useState();
@@ -78,3 +78,4 @@ export const MovieDetails = () => {
     </div>
   );
 };
+export default MovieDetails;

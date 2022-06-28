@@ -1,9 +1,11 @@
 import { Trending } from '../Trending/index';
 
-export const Home = () => {
+const Home = () => {
   return (
     <main>
       <Trending />
     </main>
   );
 };
+
+export default Home;

@@ -2,7 +2,7 @@ import { useOutletContext } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 // import * as Api from 'services';
 
-export const MovieDetailsReviews = () => {
+const MovieDetailsReviews = () => {
   const film = useOutletContext();
 
   return (
@@ -22,3 +22,5 @@ export const MovieDetailsReviews = () => {
     </div>
   );
 };
+
+export default MovieDetailsReviews;

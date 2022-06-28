@@ -10,7 +10,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const NavLinks = () => {
+const NavLinks = () => {
   return (
     <header className={s.container}>
       <ul className={s.list}>
@@ -28,3 +28,4 @@ export const NavLinks = () => {
     </header>
   );
 };
+export default NavLinks;

@@ -2,7 +2,7 @@ import { useOutletContext } from 'react-router-dom';
 import * as Api from 'services';
 import s from './MovieDetailsCast.module.css';
 
-export const MovieDetailsCast = () => {
+const MovieDetailsCast = () => {
   const film = useOutletContext();
 
   return (
@@ -25,3 +25,5 @@ export const MovieDetailsCast = () => {
     </div>
   );
 };
+
+export default MovieDetailsCast;
