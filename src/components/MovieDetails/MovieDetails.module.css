@@ -1,0 +1,48 @@
+.img {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  display: flex;
+  margin-left: 60px;
+  margin-top: 50px;
+}
+.linkList {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+}
+.link {
+  text-decoration: none;
+  color: black;
+  margin-left: 120px;
+}
+.reviews {
+  position: absolute;
+  text-decoration: none;
+  color: black;
+  top: 0;
+  left: 280px;
+}
+.overview {
+  width: 400px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.genres {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.span:not(:last-child) {
+  margin-right: 20px;
+}
+.btn {
+  margin-left: 60px;
+  padding: 2px 15px;
+}

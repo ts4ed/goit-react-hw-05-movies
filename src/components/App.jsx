@@ -1,16 +1,32 @@
+import { Suspense } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Home } from './Home';
+import { Movies } from './Movies';
+import { NotFounder } from './NotFounder';
+import { MovieDetails } from './MovieDetails';
+import { MovieDetailsCast } from './MovieDetails/MovieDetailsCast';
+import { MovieDetailsReviews } from './MovieDetails/MovieDetailsReviews';
+import { NavLinks } from './NavLinks';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <BrowserRouter>
+        <NavLinks />
+        <Suspense fallback={<div>back</div>}>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/movies" element={<Movies />}>
+              <Route path=":movieId" element={<MovieDetails />}>
+                <Route path="cast" element={<MovieDetailsCast />} />
+                <Route path="reviews" element={<MovieDetailsReviews />} />
+                <Route path="*" element={<NotFounder />} />
+              </Route>
+            </Route>
+            <Route path="*" element={<NotFounder />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </div>
   );
 };
