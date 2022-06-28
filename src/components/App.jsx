@@ -11,7 +11,7 @@ import { NavLinks } from './NavLinks';
 export const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/goit-react-hw-05-movies">
         <NavLinks />
         <Suspense fallback={<div>back</div>}>
           <Routes>
