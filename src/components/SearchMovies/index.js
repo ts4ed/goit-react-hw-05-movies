@@ -1,1 +1,1 @@
-import * from './SearchMovies'
+import * from './SearchMovies';
