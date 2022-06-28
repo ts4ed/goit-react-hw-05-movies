@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
-import * as Api from 'services';
+// import * as Api from 'services';
 
 export const MovieDetailsReviews = () => {
   const film = useOutletContext();

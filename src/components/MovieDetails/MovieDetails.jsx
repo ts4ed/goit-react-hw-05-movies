@@ -9,7 +9,7 @@ import {
 import * as Api from 'services';
 import s from './MovieDetails.module.css';
 import { Loading } from '../Loading/Loading';
-import { Movies } from 'components/Movies';
+// import { Movies } from 'components/Movies';
 
 export const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
