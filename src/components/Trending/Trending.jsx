@@ -4,6 +4,7 @@ import { getTrending } from 'services';
 import s from './Trending.module.css';
 import * as Api from 'services';
 import styled from 'styled-components';
+import { Loading } from '../Loading/Loading';
 
 const StyledLink = styled(Link)`
   color: black;
@@ -13,15 +14,20 @@ const StyledLink = styled(Link)`
 export const Trending = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     getTrending().then(r => {
       setMovies(r.results);
+      setLoading(false);
     });
   }, []);
 
   return (
     <div>
+      {loading && <Loading />}
       <ul className={s.list}>
         {movies.map(movie => (
           <li className={s.item} key={movie.id}>

@@ -32,13 +32,12 @@ const MovieDetails = () => {
   };
   return (
     <div>
-      {loading && <Loading />}
       {film && (
         <button className={s.btn} onClick={onBack}>
           Back
         </button>
       )}
-
+      {loading && <Loading />}
       {film && (
         <div className={s.container}>
           <img
