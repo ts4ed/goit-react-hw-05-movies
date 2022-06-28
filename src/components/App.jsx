@@ -23,7 +23,7 @@ export const App = () => {
                 <Route path="*" element={<NotFounder />} />
               </Route>
             </Route>
-            <Route path="*" element={<NotFounder />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

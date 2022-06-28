@@ -15,7 +15,6 @@ export const SearchMovies = () => {
   let location = useLocation();
   let params = new URLSearchParams(location.search);
   const [movies, setMovies] = useState('');
-  const [error, setError] = useState('');
   const [input, setInput] = useState('');
   const [totalPage, setTotalPage] = useState('');
   const navigate = useNavigate();
@@ -68,12 +67,7 @@ export const SearchMovies = () => {
       }
     }
     fetchMovie();
-    // .catch(e => {
-    //   setError(e.message);
-
-    //   navigate(`/NotFounder`); // просто щоб не було строці пошуку не стояло "/*"
-    // });
-  }, [query, page]);
+  }, [query, navigate, page]);
 
   const hendleSetPage = data => {
     setPage(data);
