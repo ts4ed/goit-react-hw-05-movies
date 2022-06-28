@@ -1,1 +1,1 @@
-import * as from './Pagination'
+import *  from './Pagination'

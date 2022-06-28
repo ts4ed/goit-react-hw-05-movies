@@ -1,1 +1,1 @@
-import * as from './SearchMovies'
+import * from './SearchMovies'
