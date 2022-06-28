@@ -14,8 +14,12 @@ const Movies = lazy(() =>
   import('./Movies' /* webpackChunkName: "movies-page" */)
 );
 
-const NotFound = lazy(() =>
+const NotFounder = lazy(() =>
   import('./NotFounder' /* webpackChunkName: "notFound-page" */)
+);
+
+const MovieDetails = lazy(() =>
+  import('./MovieDetails' /* webpackChunkName: "movieDetails-page" */)
 );
 
 const MovieDetailsCast = lazy(() =>
