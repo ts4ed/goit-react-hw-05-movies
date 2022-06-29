@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/notFound-page.73d2c4c1.chunk.js","mappings":"2JAIA,UAJmB,WACjB,OAAO","sources":["components/NotFounder/NotFounder.jsx"],"sourcesContent":["const NotFounder = () => {\n  return <div>Такой страницы не существует</div>;\n};\n\nexport default NotFounder;\n"],"names":[],"sourceRoot":""}
