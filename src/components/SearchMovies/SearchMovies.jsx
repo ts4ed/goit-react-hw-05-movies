@@ -63,12 +63,12 @@ export const SearchMovies = () => {
       }
     }
     fetchMovie();
-  }, [query, navigate, page]);
+  }, [query, navigate, location.search, page]);
 
   const hendleSetPage = data => {
     setPage(data);
     location = {
-      search: `?query=${input}&page=${data}`,
+      search: `?query=${query}&page=${data}`,
     };
     navigate(location.search);
   };
