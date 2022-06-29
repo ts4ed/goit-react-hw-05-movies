@@ -9,7 +9,6 @@ import {
 import * as Api from 'services';
 import s from './MovieDetails.module.css';
 import { Loading } from '../Loading/Loading';
-// import { Movies } from 'components/Movies';
 
 const MovieDetails = () => {
   const [loading, setLoading] = useState(false);

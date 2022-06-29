@@ -1,13 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Loading } from './Loading/Loading';
-// import { Home } from './Home';
-// import { Movies } from './Movies';
-// import { NotFounder } from './NotFounder';
-// import { MovieDetails } from './MovieDetails';
-// import { MovieDetailsCast } from './MovieDetailsCast/MovieDetailsCast';
-// import { MovieDetailsReviews } from './MovieDetailsReviews/MovieDetailsReviews';
-// import { NavLinks } from './NavLinks';
 
 const Home = lazy(() =>
   import('./Home/Home' /* webpackChunkName: "home-page" */)

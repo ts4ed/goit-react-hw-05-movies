@@ -31,17 +31,13 @@ export const SearchMovies = () => {
     }
     if (value !== query) {
       setPage(1);
-
       setQuery(value);
       location = {
         pathname: `/movies`,
         search: `?query=${value}&page=1`,
       };
       navigate(location.search);
-
       setInput('');
-
-      // console.log(page);
       setInput('');
     }
   };
@@ -84,7 +80,6 @@ export const SearchMovies = () => {
           name="movie"
           value={input}
           onChange={e => setInput(e.target.value)}
-          // placeholder={query}
         />
         <button type="submit">Search Movie</button>
       </form>
