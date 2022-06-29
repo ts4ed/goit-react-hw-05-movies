@@ -15,7 +15,7 @@ const NavLinks = () => {
     <header className={s.container}>
       <ul className={s.list}>
         <li className={s.link}>
-          <StyledLink className={s.item} to="/home">
+          <StyledLink className={s.item} exact to="/">
             Home
           </StyledLink>
         </li>

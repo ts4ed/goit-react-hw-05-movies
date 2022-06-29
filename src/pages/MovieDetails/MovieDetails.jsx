@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import * as Api from 'services';
 import s from './MovieDetails.module.css';
-import { Loading } from '../Loading/Loading';
+import { Loading } from '../../components/Loading/Loading';
 
 const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
