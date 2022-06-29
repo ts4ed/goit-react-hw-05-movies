@@ -26,8 +26,8 @@ export const SearchMovies = () => {
   const onSubmit = e => {
     e.preventDefault();
     const { value } = e.target.elements.movie;
-    if (input === '' && alert('Введите запрос')) {
-      return;
+    if (input.trim() === '' && alert('Введите запрос')) {
+      return console.log(value);
     }
     if (value !== query) {
       setPage(1);
@@ -42,7 +42,7 @@ export const SearchMovies = () => {
     }
   };
   useEffect(() => {
-    if (query === '') {
+    if (query.trim() === '') {
       return;
     }
     async function fetchMovie() {

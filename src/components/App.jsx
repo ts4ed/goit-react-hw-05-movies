@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Loading } from './Loading/Loading';
 
 const Home = lazy(() =>
@@ -36,30 +36,21 @@ const MovieDetailsReviews = lazy(() =>
 
 export const App = () => {
   return (
-    <div>
-      <BrowserRouter basename="/goit-react-hw-05-movies">
-        <NavLinks />
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route
-              path="/home"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <Home />
-                </Suspense>
-              }
-            />
-            <Route path="/movies" element={<Movies />}>
-              <Route path=":movieId" element={<MovieDetails />}>
-                <Route path="cast" element={<MovieDetailsCast />} />
-                <Route path="reviews" element={<MovieDetailsReviews />} />
-                <Route path="*" element={<NotFounder />} />
-              </Route>
+    <>
+      <NavLinks />
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="*" element={<Home />} />
+          <Route path="/movies" element={<Movies />}>
+            <Route path=":movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<MovieDetailsCast />} />
+              <Route path="reviews" element={<MovieDetailsReviews />} />
+              <Route path="*" element={<NotFounder />} />
             </Route>
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </div>
+          </Route>
+          {/* <Route path="*" element={<Home />} /> */}
+        </Routes>
+      </Suspense>
+    </>
   );
 };
