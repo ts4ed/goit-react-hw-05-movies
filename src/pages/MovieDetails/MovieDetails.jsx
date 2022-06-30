@@ -32,11 +32,6 @@ const MovieDetails = () => {
   const onBack = () => {
     navigate(location?.state?.from ?? '/movies');
   };
-  // const onBack = e => {
-  //   location.state !== null
-  //     ? navigate(`${location.state.from.pathname}${location.state.from.search}`)
-  //     : navigate(`/home`);
-  // };
   return (
     <div>
       {film && (
