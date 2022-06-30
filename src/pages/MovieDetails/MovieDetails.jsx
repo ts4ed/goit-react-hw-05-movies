@@ -18,17 +18,25 @@ const MovieDetails = () => {
   const location = useLocation();
   useEffect(() => {
     setLoading(true);
-    Api.getMovieDetails(movieId).then(r => {
-      setFilm(r);
-      setLoading(false);
-    });
-  }, [movieId]);
+    Api.getMovieDetails(movieId)
+      .then(r => {
+        setFilm(r);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error.message);
+        navigate(`/movies`);
+      });
+  }, [movieId, navigate]);
 
-  const onBack = e => {
-    location.state !== null
-      ? navigate(`${location.state.from.pathname}${location.state.from.search}`)
-      : navigate(`/home`);
+  const onBack = () => {
+    navigate(location?.state?.from ?? '/movies');
   };
+  // const onBack = e => {
+  //   location.state !== null
+  //     ? navigate(`${location.state.from.pathname}${location.state.from.search}`)
+  //     : navigate(`/home`);
+  // };
   return (
     <div>
       {film && (
@@ -64,10 +72,22 @@ const MovieDetails = () => {
       )}
       {film && (
         <ul className={s.linkList}>
-          <Link className={s.link} to="cast">
+          <Link
+            className={s.link}
+            to="cast"
+            state={{
+              from: `${location.state.from.pathname}${location.state.from.search}`,
+            }}
+          >
             Cast
           </Link>
-          <Link className={s.reviews} to="reviews">
+          <Link
+            className={s.reviews}
+            to="reviews"
+            state={{
+              from: `${location.state.from.pathname}${location.state.from.search}`,
+            }}
+          >
             Reviews
           </Link>
           <Outlet context={film} />

@@ -34,10 +34,9 @@ export const SearchMovies = () => {
       setQuery(value);
       location = {
         pathname: `/movies`,
-        search: `?query=${value}&page=1`,
+        search: `?query=${value.trim()}&page=1`,
       };
       navigate(location.search);
-      setInput('');
       setInput('');
     }
   };
@@ -48,7 +47,6 @@ export const SearchMovies = () => {
     async function fetchMovie() {
       try {
         setLoading(true);
-
         getSearchMovie(query, page).then(r => {
           r.results.length === 0 && alert('По вашему запросу ничего нет');
           setMovies(r.results);
