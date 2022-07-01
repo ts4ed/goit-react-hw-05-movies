@@ -17,7 +17,6 @@ export const Pagination = ({
       <button className={s.btn1} onClick={onClick} name="back">
         past page
       </button>
-      {/* <Integer>{page}</Integer> */}
       <button className={s.btn} onClick={onClick} name="forward">
         next page
       </button>
