@@ -38,10 +38,13 @@ export const SearchMovies = () => {
       page: 1,
     });
   };
+
   const searchQuery = searchParams.get('query') ?? '';
   const currentPage = searchParams.get('page') ?? 1;
+
   useEffect(() => {
     if (!searchQuery) return setSearchParams('');
+
     async function fetchMovie() {
       try {
         setLoading(true);
