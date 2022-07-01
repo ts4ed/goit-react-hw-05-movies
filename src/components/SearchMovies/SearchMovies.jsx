@@ -1,6 +1,11 @@
 import { getSearchMovie } from 'services';
 import { useState, useEffect } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import {
+  useLocation,
+  useSearchParams,
+  useNavigate,
+  Link,
+} from 'react-router-dom';
 import s from './SearchMovies.module.css';
 import { Pagination } from 'components/Pagination/Pagination';
 import { Loading } from '../Loading/Loading';
@@ -13,45 +18,37 @@ const StyledLink = styled(Link)`
 
 export const SearchMovies = () => {
   let location = useLocation();
-  let params = new URLSearchParams(location.search);
-  const [movies, setMovies] = useState('');
   const [input, setInput] = useState('');
   const [totalPage, setTotalPage] = useState('');
-  const navigate = useNavigate();
-  const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(params.get('page') ?? 1);
-  query === '' && params.get('query') !== null && setQuery(params.get('query'));
+  const [movies, setMovies] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const onSubmit = e => {
     e.preventDefault();
     const { value } = e.target.elements.movie;
+
     if (input.trim() === '' && alert('Введите запрос')) {
       return console.log(value);
     }
-    if (value !== query) {
-      setPage(1);
-      setQuery(value);
-      location = {
-        pathname: `/movies`,
-        search: `?query=${value.trim()}&page=1`,
-      };
-      navigate(location.search);
-      setInput('');
-    }
+
+    setSearchParams({
+      query: value.trim(),
+      page: 1,
+    });
   };
+  const searchQuery = searchParams.get('query') ?? '';
+  const currentPage = searchParams.get('page') ?? 1;
   useEffect(() => {
-    if (query.trim() === '') {
-      return;
-    }
+    if (!searchQuery) return setSearchParams('');
     async function fetchMovie() {
       try {
         setLoading(true);
-        getSearchMovie(query, page).then(r => {
+        getSearchMovie(searchQuery, currentPage).then(r => {
           r.results.length === 0 && alert('По вашему запросу ничего нет');
           setMovies(r.results);
           setTotalPage(r.total_pages);
-          setPage(r.page);
           setLoading(false);
         });
       } catch (error) {
@@ -61,14 +58,19 @@ export const SearchMovies = () => {
       }
     }
     fetchMovie();
-  }, [query, navigate, location.search, page]);
+  }, [searchQuery, setSearchParams, navigate, currentPage]);
 
-  const hendleSetPage = data => {
-    setPage(data);
-    location = {
-      search: `?query=${query}&page=${data}`,
-    };
-    navigate(location.search);
+  const hendleUpPage = () => {
+    setSearchParams({
+      query: searchQuery,
+      page: Number(currentPage) + 1,
+    });
+  };
+  const hendleDownPage = () => {
+    setSearchParams({
+      query: searchQuery,
+      page: Number(currentPage) - 1,
+    });
   };
   return (
     <div>
@@ -101,8 +103,9 @@ export const SearchMovies = () => {
       </ul>
       {movies.length !== 0 && (
         <Pagination
-          changePage={hendleSetPage}
-          page={page}
+          changeUpPage={hendleUpPage}
+          changeDownPage={hendleDownPage}
+          page={Number(currentPage)}
           totalPage={totalPage}
         />
       )}

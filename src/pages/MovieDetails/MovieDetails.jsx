@@ -70,18 +70,14 @@ const MovieDetails = () => {
           <Link
             className={s.link}
             to="cast"
-            state={{
-              from: `${location.state.from.pathname}${location.state.from.search}`,
-            }}
+            state={{ from: location?.state?.from }}
           >
             Cast
           </Link>
           <Link
             className={s.reviews}
             to="reviews"
-            state={{
-              from: `${location.state.from.pathname}${location.state.from.search}`,
-            }}
+            state={{ from: location?.state?.from }}
           >
             Reviews
           </Link>
