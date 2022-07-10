@@ -14,7 +14,7 @@ const MovieDetailsCast = () => {
               className={s.img}
               src={
                 r.profile_path &&
-                `${Api.IMG_BASE_URL}${Api.IMG_W200}${r.profile_path}`
+                `${Api.IMG_BASE_URL}${Api.IMG_W400}${r.profile_path}`
               }
               alt={r.name}
             />
