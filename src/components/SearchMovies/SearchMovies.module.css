@@ -27,6 +27,7 @@
 .item:focus,
 .item:hover {
   transform: scale(0.9);
+  z-index: 5;
 }
 .title {
   margin-top: 10px;
