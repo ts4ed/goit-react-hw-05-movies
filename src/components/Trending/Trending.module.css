@@ -10,8 +10,10 @@
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+  column-gap: 20px;
 }
 .item {
+  z-index: 1;
   /* max-width: 400px; */
   height: 560px;
   display: flex;
@@ -25,6 +27,7 @@
 .item:focus,
 .item:hover {
   transform: scale(0.9);
+  z-index: 5;
 }
 .title {
   text-decoration: none;
