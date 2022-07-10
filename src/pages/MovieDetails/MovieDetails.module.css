@@ -2,6 +2,8 @@
   display: inline-block;
   padding: 0;
   margin: 0;
+  max-width: 400px;
+  max-height: 500px;
 }
 .container {
   display: flex;
@@ -27,7 +29,8 @@
   left: 280px;
 }
 .overview {
-  width: 400px;
+  max-width: 400px;
+  padding-right: 20px;
 }
 .info {
   display: flex;
@@ -45,4 +48,7 @@
 .btn {
   margin-left: 60px;
   padding: 2px 15px;
+}
+.title {
+  padding-right: 20px;
 }
