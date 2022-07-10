@@ -10,6 +10,10 @@ export const Pagination = ({
     const { name } = e.currentTarget;
     name === 'forward' && page !== totalPage && changeUpPage();
     name === 'back' && page !== 1 && changeDownPage();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (

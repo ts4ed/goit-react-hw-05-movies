@@ -53,6 +53,7 @@ export const SearchMovies = () => {
           setMovies(r.results);
           setTotalPage(r.total_pages);
           setLoading(false);
+          setInput('');
         });
       } catch (error) {
         if (error) {

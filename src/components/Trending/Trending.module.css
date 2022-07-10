@@ -14,7 +14,7 @@
 }
 .item {
   z-index: 1;
-  /* max-width: 400px; */
+  width: 400px;
   height: 560px;
   display: flex;
   justify-content: center;
